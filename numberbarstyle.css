@@ -1,0 +1,22 @@
+#bar{
+    border: 3px solid black;
+    width: 20rem;
+    height: 2rem;
+}
+
+#leftprocess{
+    background-color: tomato;
+    width: 0rem;
+    height: 2rem;
+    margin: 0px;
+    float: left;
+}
+
+#rightprocess{
+    background-color: tomato;
+    width: 0rem;
+    height: 2rem;
+    margin: 0px;
+    float: right;
+
+}

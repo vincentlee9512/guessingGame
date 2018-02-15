@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NumberGuessingGame</title>
+    <link href="numberbarstyle.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+    <h1 id="pagetitle">Guess a Number!</h1>
+
+
+        <p>Range: 1-100</p>
+        <input type="text" id="n1"/>
+        <button type="button" onclick="add();">Guess</button>
+
+
+        <br/><br/>
+
+
+        <div id="bar">
+            <div id="leftprocess"></div>
+            <div id="rightprocess"></div>
+        </div>
+
+
+        <h3 id="resultTitle">Used number</h3>
+        <p id="numList">
+
+        </p>
+
+        <br/><br/><br/><br/><br/>
+        <p id="success"></p>
+
+
+
+    <script>
+        var randomN = Math.floor(Math.random() * 100);
+        var largestOfLeft = 0;
+        var smallestOfRight = 100;
+        var usedNumArray=[];
+
+        function add(){
+            var n1 = parseFloat(document.getElementById('n1').value);
+
+            if(n1 > 100 || n1<0){
+                alert("The range is only 1 to 100");
+            }else {
+
+                if (n1 != randomN) {
+                    usedNumArray.push(n1);
+                } else {
+                    document.write("Congratulation! The Number is " + randomN);
+                }
+            }
+
+            document.getElementById('numList').innerText=usedNumArray.join('\n');
+
+            //displaying bar part
+            if(n1 < randomN){
+                if(n1 > largestOfLeft){
+                    document.getElementById("leftprocess").style.width = (n1/50*10)+"rem"
+                    largestOfLeft = n1;
+                }
+            }else{
+                if(n1 < smallestOfRight){
+                    document.getElementById("rightprocess").style.width = (100-n1)/50*10+"rem";
+                    smallestOfRight = n1;
+                }
+            }
+            document.getElementById('n1').value = "";
+        }
+    </script>
+</body>
+</html>
